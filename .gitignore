@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS files (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Build output
+/dist
+/build
+
+# npm debug log
+npm-debug.log*
+
+# Yarn lock file (if you're using Yarn)
+yarn.lock
+
+# JetBrains IDEs (e.g., WebStorm, PhpStorm)
+.idea/
+
+# VSCode settings
+.vscode/
+
+# Miscellaneous (if you use some other folders or files)
+*.bak
+*.swp
