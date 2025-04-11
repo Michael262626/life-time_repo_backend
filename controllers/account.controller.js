@@ -5,16 +5,24 @@ const UpdateAccountDto  = require("../dtos/update-acount-dto.dto");
 class AccountController {
   async create(req, res, next) {
     try {
-      const dto = new CreateAccountDto(req.body);
-      dto.validate();
+      const { firstName, lastName, occupation } = req.body;
       const image = req.file;
+  
+      const dto = new CreateAccountDto({
+        firstName,
+        lastName,
+        occupation,
+        image: image?.filename || "",
+      });
+  
+      dto.validate();
+  
       const account = await accountService.createAccount(dto);
       res.status(201).json(account);
     } catch (error) {
       next(error);
     }
-  }
-
+  }  
   async update(req, res, next) {
     try {
       const id = parseInt(req.params.id);

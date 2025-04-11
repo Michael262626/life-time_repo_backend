@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path')
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
@@ -24,6 +25,8 @@ app.use(express.static("public"));
 
 // API routes
 app.use("/api/v1/accounts", accountRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
 
 // Swagger docs
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));

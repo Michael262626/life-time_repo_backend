@@ -1,27 +1,33 @@
-const OccupationEnum = require("../models/enums/occupation.enum");
+const OccupationEnum = require("./enums/occupation.enum")
 
 module.exports = (sequelize, Sequelize) => {
+  const { DataTypes } = Sequelize
+
   const Account = sequelize.define("Account", {
     firstName: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     lastName: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     occupation: {
-      type: Sequelize.ENUM,
+      type: DataTypes.ENUM,
       values: Object.values(OccupationEnum),
       allowNull: false,
       unique: true,
     },
-    // date: {
-    //   type: Sequelize.DATE,
-    //   allowNull: false,
-    //   defaultValue: Sequelize.NOW,
-    // },
-  });
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
+  })
 
-  return Account;
-};
+  return Account
+}

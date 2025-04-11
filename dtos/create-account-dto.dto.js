@@ -1,7 +1,7 @@
 const OccupationEnum = require("../models/enums/occupation.enum");
 
 class CreateAccountDto {
-  constructor({ firstName, lastName, occupation }) {
+  constructor({ firstName, lastName, occupation, image}) {
     if (!firstName || !occupation) {
       throw new Error("First name and occupation are required.");
     }
@@ -9,6 +9,7 @@ class CreateAccountDto {
     this.firstName = firstName;
     this.lastName = lastName;
     this.occupation = occupation;
+    this.image = image
   }
 
   validate() {
